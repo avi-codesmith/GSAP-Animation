@@ -34,22 +34,20 @@ const loadingAnimation = () => {
     y: 1000,
     opacity: 0,
     delay: 0.2,
-    duration: 0.5,
+    duration: 0.2,
     stagger: 0.3,
   });
   gsap.from(".second", {
     x: 5000,
-    // opacity: 0,
+    opacity: 0,
     delay: 0.5,
-    duration: 1,
+    duration: 0.5,
     stagger: 0.3,
   });
   gsap.from(".vedio-container", {
     x: -5000,
-    delay: 1.2,
-    duration: 0.7,
-    opacity: 0,
-    // stagger: 0.2,
+    delay: 1,
+    duration: 0.5,
   });
 };
 

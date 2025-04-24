@@ -32,7 +32,7 @@ body {
 }
 
 .main-page h1 {
-  font-size: 16.6vw;
+  font-size: 16.5vw;
   text-transform: uppercase;
   font-family: futura;
   line-height: 0.87;
@@ -81,11 +81,46 @@ body {
 .product {
   height: 100%;
   width: 33%;
-  background-color: #000;
 }
 
 .product img {
   height: 100%;
   width: 100%;
   object-fit: cover;
+}
+
+@media (max-width: 1024px) {
+  .vedio-container {
+    height: 60vh;
+  }
+  .product-wrapper {
+    height: 70vh;
+  }
+}
+
+@media (max-width: 900px) {
+  .main-page h1 {
+    font-size: 16vw;
+  }
+  .product-wrapper {
+    height: 40vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-wrapper {
+    flex-direction: column;
+    gap: 1vw;
+    height: 60vh;
+    margin-top: 20vw;
+  }
+  .product {
+    width: 100%;
+  }
+  .main-page {
+    min-height: 30vh;
+  }
+  .vedio-container {
+    height: 30vh;
+  }
 }
