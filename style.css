@@ -1,0 +1,91 @@
+@font-face {
+  font-family: "futura";
+  src: url("./Futura-Bold.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+::selection {
+  background-color: #000;
+  color: #fff;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+.main-page {
+  min-height: 100vh;
+  position: relative;
+  width: 100%;
+  padding: 0 1vw;
+  padding-top: 18vh;
+  background-color: #fff;
+}
+
+.main-page h1 {
+  font-size: 16.6vw;
+  text-transform: uppercase;
+  font-family: futura;
+  line-height: 0.87;
+  letter-spacing: -0.9vw;
+}
+
+.vedio-container {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+.vedio-container video {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.vedio-container .play {
+  height: 6vw;
+  width: 6vw;
+  background-color: black;
+  color: #fff;
+  font-size: 1vw;
+  text-transform: uppercase;
+  font-family: futura;
+  position: fixed;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  scale: 0;
+}
+
+.product-wrapper {
+  padding: 1vw;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.product {
+  height: 100%;
+  width: 33%;
+  background-color: #000;
+}
+
+.product img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
