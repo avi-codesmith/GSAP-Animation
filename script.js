@@ -3,50 +3,19 @@ const scroll = new LocomotiveScroll({
   smooth: true,
 });
 
-const vedioContainerAnimation = () => {
-  const videoCon = document.querySelector(".vedio-container");
-  const playBtn = document.querySelector(".vedio-container .play");
-  videoCon.addEventListener("mouseenter", () => {
-    gsap.to(playBtn, {
-      scale: 1,
-      opacity: 1,
-    });
-  });
-
-  videoCon.addEventListener("mouseleave", () => {
-    gsap.to(playBtn, {
-      scale: 0,
-      opacity: 0,
-    });
-  });
-
-  videoCon.addEventListener("mousemove", (e) => {
-    gsap.to(playBtn, {
-      left: e.x,
-      top: e.y,
-    });
-  });
-};
-vedioContainerAnimation();
-
 const loadingAnimation = () => {
-  gsap.from(".first", {
+  gsap.from("h1", {
     y: 1000,
     opacity: 0,
-    delay: 0.2,
-    duration: 0.2,
+    delay: 0.8,
+    duration: 0.8,
     stagger: 0.3,
   });
-  gsap.from(".second", {
-    x: 5000,
+
+  gsap.from(".img-container", {
+    scale: 0.9,
     opacity: 0,
-    delay: 0.5,
-    duration: 0.5,
-    stagger: 0.3,
-  });
-  gsap.from(".vedio-container", {
-    x: -5000,
-    delay: 1,
+    delay: 2,
     duration: 0.5,
   });
 };
