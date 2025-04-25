@@ -12,8 +12,15 @@ const loadingAnimation = () => {
     stagger: 0.3,
   });
 
+  document.querySelector("main").addEventListener("scroll", () => {
+    gsap.to(".cover", {
+      opacity: 0,
+      duration: 0.5,
+    });
+  });
+
   gsap.from(".img-container", {
-    scale: 0.9,
+    scale: 0.99,
     opacity: 0,
     delay: 2,
     duration: 0.5,
@@ -21,3 +28,12 @@ const loadingAnimation = () => {
 };
 
 loadingAnimation();
+
+const imgSec = document.querySelector(".product-wrappper");
+
+const obs = new IntersectionObserver((enteries) => {
+  const ent = enteries[0];
+  console.log(ent);
+});
+
+obs.observe(imgSec);
