@@ -76,6 +76,8 @@ body {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  opacity: 1;
+  scale: 1;
 }
 
 .product img {
@@ -90,6 +92,132 @@ body {
   background-color: blanchedalmond;
   position: absolute;
   border-radius: 50vw;
+}
+
+.shop-section {
+  background-color: #fff;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  flex-direction: column;
+  padding: 1vh;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 2vh;
+  width: 100%;
+}
+
+.heading {
+  width: 35vw;
+}
+
+.heading h1 {
+  font-size: 4.5vh;
+  font-family: futura;
+  text-transform: uppercase;
+}
+
+.para {
+  width: 20vw;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2vh;
+}
+
+.para p {
+  font-size: 1.4vh;
+  font-family: sans-serif;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.para p a {
+  color: #333;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.hover {
+  background-color: #333;
+  height: 2px;
+  width: 100%;
+  margin-top: 1vh;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.needHover {
+  height: 3vh;
+}
+
+.img-sec {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 6vh;
+  width: 80vw;
+  height: 100vh;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1vh;
+}
+
+.img p,
+span {
+  color: #111;
+  text-transform: uppercase;
+  font-family: sans-serif;
+  font-weight: 500;
+}
+
+img {
+  height: 50rem;
+  width: 50rem;
+}
+
+.move {
+  animation: move 0.8s ease-in-out;
+}
+
+.circle {
+  background-color: #f1f1f1;
+  height: 15rem;
+  width: 15rem;
+  border-radius: 50%;
+  position: absolute;
+  opacity: 0;
+  scale: 0;
+}
+
+@keyframes move {
+  0% {
+    width: 0;
+    transform: translateX(0);
+  }
+  50% {
+    width: 100%;
+  }
+  100% {
+    width: 0;
+    transform: translateX(10rem);
+  }
 }
 
 @media (max-width: 1024px) {
