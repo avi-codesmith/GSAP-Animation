@@ -169,6 +169,7 @@ body {
   margin-top: 6vh;
   align-items: center;
   justify-items: center;
+  position: relative;
 }
 
 .img {
@@ -177,7 +178,6 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  position: relative;
 }
 
 img {
@@ -198,16 +198,29 @@ img {
   width: 50rem;
 }
 
-.circle {
+/* .circle {
   height: 180px;
   width: 180px;
-  background-color: rgba(224, 139, 189, 0.814);
   border-radius: 50%;
   position: fixed;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); 
   scale: 0;
   opacity: 0;
   z-index: 1;
+  } */
+
+.circle {
+  position: fixed;
+  height: 30vh;
+  width: 30vh;
+  background-color: #fff;
+  border-radius: 50%;
+  pointer-events: none; /* So it doesn't block mouse events */
+  transform: translate(-50%, -50%);
+  left: 0;
+  top: 0;
+  scale: 0; /* Start hidden */
+  box-shadow: inset 0 0 32px #ddd;
 }
 
 .move {

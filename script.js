@@ -93,24 +93,45 @@ hoverAnimation();
 // cursorMove();
 
 const cursorAnimation = () => {
-  document.querySelectorAll(".img").forEach(function (elem) {
-    elem.addEventListener("mouseenter", function () {
-      gsap.to(".circle", {
-        transform: "translate(-50%,-50%)",
+  const circle = document.querySelector(".circle");
+
+  const setCirclePos = gsap.quickSetter(circle, "css");
+
+  document.querySelectorAll(".img").forEach((elem) => {
+    const img = elem.querySelector("img");
+
+    elem.addEventListener("mouseenter", () => {
+      circle.style.backgroundImage = `url("${img.src}")`;
+      circle.style.backgroundSize = `${img.width * 2}px ${img.height * 2}px`; // 📸 Set correct zoom level based on image size
+
+      gsap.to(circle, {
         scale: 1,
-        opacity: 2,
+        opacity: 1,
+        duration: 0.3,
+        ease: "power2.out",
       });
     });
+
     elem.addEventListener("mousemove", (e) => {
-      gsap.to(".circle", {
+      const rect = elem.getBoundingClientRect(); // ⚡ Get the .img div's position
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      gsap.set(circle, {
         left: e.clientX,
         top: e.clientY,
-        duration: 0.3,
+        backgroundPosition: `-${x * 2 - circle.offsetWidth / 2}px -${
+          y * 2 - circle.offsetHeight / 1
+        }px`,
       });
     });
-    elem.addEventListener("mouseleave", function () {
-      gsap.to(".circle", {
-        transform: "translate(-50%,-50%) scale(0)",
+
+    elem.addEventListener("mouseleave", () => {
+      gsap.to(circle, {
+        scale: 0,
+        opacity: 0,
+        duration: 0.3,
+        ease: "power2.out",
       });
     });
   });
