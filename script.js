@@ -66,17 +66,29 @@ const hoverAnimation = () => {
 hoverAnimation();
 
 const cursorMove = () => {
-  products.addEventListener("mouseenter", (e) => {
-    gsap.to(".circle", {
+  const circle = document.querySelector(".circle"); // get the circle element
+
+  products.addEventListener("mouseenter", () => {
+    gsap.to(circle, {
       opacity: 1,
       scale: 1,
-      x: e.clientX,
-      y: e.clientY,
+    });
+  });
+
+  products.addEventListener("mousemove", (e) => {
+    const circleWidth = circle.offsetWidth / 2;
+    const circleHeight = circle.offsetHeight / 2;
+
+    gsap.to(circle, {
+      x: e.clientX - circleWidth,
+      y: e.clientY - circleHeight,
+      duration: 0.3,
+      ease: "power2.out",
     });
   });
 
   products.addEventListener("mouseleave", () => {
-    gsap.to(".circle", {
+    gsap.to(circle, {
       opacity: 0,
       scale: 0,
     });
