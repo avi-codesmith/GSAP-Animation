@@ -20,6 +20,8 @@ html,
 body {
   height: 100%;
   width: 100%;
+  overflow-x: hidden; /* Only horizontal scroll ko band kar */
+  overflow-y: visible; /* Vertical overflow ko visible rehne de */
 }
 
 .main-page {
@@ -159,23 +161,11 @@ body {
 .needHover {
   height: 3vh;
 }
-/* 
-.img-sec {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  margin-top: 6vh;
-  width: 80vw;
-  height: 100vh;
-  position: relative;
-} */
 
 .img-sec {
   display: grid;
   grid-template: 1fr 1fr / 1fr 1fr;
   width: 80vw;
-  /* height: 100vh; */
-  position: relative;
   margin-top: 6vh;
   align-items: center;
   justify-items: center;
@@ -187,6 +177,7 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  position: relative;
 }
 
 img {
@@ -208,18 +199,24 @@ img {
 }
 
 .circle {
-  background-color: #f1f1f1;
-  height: 15rem;
-  width: 15rem;
+  height: 180px;
+  width: 180px;
+  background-color: rgba(224, 139, 189, 0.814);
   border-radius: 50%;
-  position: absolute;
-  top: 0;
-  opacity: 0;
+  position: fixed;
+  transform: translate(-50%, -50%);
   scale: 0;
+  opacity: 0;
+  z-index: 1;
 }
 
 .move {
   animation: move 0.8s ease-in-out;
+}
+
+.cover {
+  height: 100vh;
+  background-color: #fff;
 }
 
 @keyframes move {

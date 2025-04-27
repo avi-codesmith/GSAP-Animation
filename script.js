@@ -1,8 +1,6 @@
 const hover = document.querySelector(".hover");
 const imgSec = document.querySelector(".product");
 const needHover = document.querySelector(".needHover");
-const circle = document.querySelector(".circle");
-const products = document.querySelector(".img-sec");
 
 const scroll = new LocomotiveScroll({
   el: document.querySelector("main"),
@@ -65,34 +63,57 @@ const hoverAnimation = () => {
 
 hoverAnimation();
 
-const cursorMove = () => {
-  const circle = document.querySelector(".circle"); // get the circle element
+// const cursorMove = () => {
+//   const circle = document.querySelector(".circle"); // get the circle element
 
-  products.addEventListener("mouseenter", () => {
-    gsap.to(circle, {
-      opacity: 1,
-      scale: 1,
+//   products.addEventListener("mouseenter", () => {
+//     gsap.to(circle, {
+//       opacity: 1,
+//       scale: 1,
+//       duration: 0.3,
+//     });
+//   });
+
+//   products.addEventListener("mousemove", (e) => {
+//     gsap.to(circle, {
+//       left: e.clientX,
+//       top: e.clientY,
+//       duration: 0.3,
+//     });
+//   });
+
+//   products.addEventListener("mouseleave", () => {
+//     gsap.to(circle, {
+//       opacity: 0,
+//       scale: 0,
+//       duration: 0.3,
+//     });
+//   });
+// };
+// cursorMove();
+
+const cursorAnimation = () => {
+  document.querySelectorAll(".img").forEach(function (elem) {
+    elem.addEventListener("mouseenter", function () {
+      gsap.to(".circle", {
+        transform: "translate(-50%,-50%)",
+        scale: 1,
+        opacity: 2,
+      });
     });
-  });
-
-  products.addEventListener("mousemove", (e) => {
-    const circleWidth = circle.offsetWidth / 2;
-    const circleHeight = circle.offsetHeight / 2;
-
-    gsap.to(circle, {
-      x: e.clientX - circleWidth,
-      y: e.clientY - circleHeight,
-      duration: 0.3,
-      ease: "power2.out",
+    elem.addEventListener("mousemove", (e) => {
+      gsap.to(".circle", {
+        left: e.clientX,
+        top: e.clientY,
+        duration: 0.3,
+      });
     });
-  });
-
-  products.addEventListener("mouseleave", () => {
-    gsap.to(circle, {
-      opacity: 0,
-      scale: 0,
+    elem.addEventListener("mouseleave", function () {
+      gsap.to(".circle", {
+        transform: "translate(-50%,-50%) scale(0)",
+      });
     });
   });
 };
 
-cursorMove();
+cursorAnimation();
