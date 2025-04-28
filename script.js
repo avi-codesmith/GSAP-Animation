@@ -1,11 +1,13 @@
-const hover = document.querySelector(".hover");
+const hover = document.querySelectorAll(".hover");
 const imgSec = document.querySelector(".product");
-const needHover = document.querySelector(".needHover");
+const needHover = document.querySelectorAll(".needHover");
+const imgWrapper = document.querySelector(".img-sec");
+const header = document.querySelector(".header");
 
 const scroll = new LocomotiveScroll({
   el: document.querySelector("main"),
   smooth: true,
-  lerp: 0.1,
+  lerp: 0.08,
   getDirection: true,
   reloadOnContextChange: true,
 });
@@ -56,11 +58,19 @@ const obs = new IntersectionObserver((enteries) => {
 obs.observe(imgSec);
 
 const hoverAnimation = () => {
-  needHover.addEventListener("mouseenter", () => {
-    hover.classList.add("move");
+  needHover.forEach((e) => {
+    e.addEventListener("mouseenter", () => {
+      hover.forEach((e) => {
+        e.classList.add("move");
+      });
+    });
   });
-  needHover.addEventListener("mouseleave", () => {
-    hover.classList.remove("move");
+  needHover.forEach((e) => {
+    e.addEventListener("mouseleave", () => {
+      hover.forEach((e) => {
+        e.classList.remove("move");
+      });
+    });
   });
 };
 
@@ -68,12 +78,13 @@ hoverAnimation();
 
 const cursorAnimation = () => {
   const circle = document.querySelector(".circle");
+
   document.querySelectorAll(".img").forEach((elem) => {
     const img = elem.querySelector("img");
 
     elem.addEventListener("mouseenter", () => {
       circle.style.backgroundImage = `url("${img.src}")`;
-      circle.style.backgroundSize = `${img.width * 2}px ${img.height * 2}px`; // 📸 Set correct zoom level based on image size
+      circle.style.backgroundSize = `${img.width * 2}px ${img.height * 2}px`;
 
       gsap.to(circle, {
         scale: 1,
@@ -82,17 +93,18 @@ const cursorAnimation = () => {
         ease: "power2.out",
       });
     });
-
     elem.addEventListener("mousemove", (e) => {
       const rect = img.getBoundingClientRect();
+      const currentScroll = scroll.scroll.instance.scroll.y;
+
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
 
       gsap.set(circle, {
         left: e.clientX,
-        top: e.clientY,
+        top: e.clientY + currentScroll,
         backgroundPosition: `-${x * 2 - circle.offsetWidth / 2}px -${
-          y * 2 - circle.offsetHeight / 1
+          y * 2 - circle.offsetHeight / 2
         }px`,
       });
     });
@@ -109,3 +121,41 @@ const cursorAnimation = () => {
 };
 
 cursorAnimation();
+
+const imgSecObs = new IntersectionObserver((enteries) => {
+  const ent = enteries[0];
+  if (ent.isIntersecting === true) {
+    gsap.from(".img", {
+      scale: 0.99,
+      opacity: 0,
+      delay: 0.4,
+      duration: 0.5,
+    });
+  } else {
+    gsap.from(".img", {
+      scale: 1,
+      opacity: 1,
+    });
+  }
+});
+
+imgSecObs.observe(imgWrapper);
+
+// const headerSecObs = new IntersectionObserver((enteries) => {
+//   const ent = enteries[0];
+//   if (ent.isIntersecting === true) {
+//     gsap.from(".header", {
+//       scale: 0.99,
+//       opacity: 0,
+//       delay: 0.4,
+//       duration: 0.5,
+//     });
+//   } else {
+//     gsap.from(".header", {
+//       scale: 1,
+//       opacity: 1,
+//     });
+//   }
+// });
+
+// imgSecObs.observe(header);
