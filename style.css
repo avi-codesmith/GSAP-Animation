@@ -225,7 +225,7 @@ span {
   width: 100%;
   position: fixed;
   bottom: 0;
-  background: linear-gradient(to top, #ffffffd8, #ffffff00);
+  background: linear-gradient(to top, #ffffff2a, #ffffff00);
   z-index: 9999;
   pointer-events: none;
 }
@@ -236,7 +236,7 @@ span {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-top: 12vh;
+  margin-top: 4vh;
 }
 
 .thank-you h6 {
@@ -301,6 +301,50 @@ span {
 .hieght h1 {
   font-family: futura;
   text-transform: uppercase;
+}
+
+footer {
+  display: flex;
+  justify-content: space-around;
+  padding: 4vh 0 0 0;
+  position: relative;
+  height: 50vh;
+  background: linear-gradient(to top, rgb(168, 156, 156), #fff);
+}
+
+.ul {
+  display: grid;
+  grid-template: 1fr 1fr / 1fr 1fr;
+  gap: 12vh;
+}
+
+.ul ul li {
+  list-style-type: none;
+  font-size: 1.5vh;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-family: sans-serif;
+  color: #777;
+  padding: 0.3vh;
+}
+
+.ul ul li:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.ul ul div {
+  font-size: 2vh;
+  font-family: futura;
+  text-transform: uppercase;
+  margin-bottom: 1vh;
+}
+
+.footer-wave {
+  position: absolute;
+  bottom: -1px;
+  z-index: 1;
+  width: 100%;
 }
 
 @keyframes move {
