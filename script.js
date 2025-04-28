@@ -5,6 +5,9 @@ const needHover = document.querySelector(".needHover");
 const scroll = new LocomotiveScroll({
   el: document.querySelector("main"),
   smooth: true,
+  lerp: 0.1,
+  getDirection: true,
+  reloadOnContextChange: true,
 });
 
 const loadingAnimation = () => {
@@ -63,40 +66,8 @@ const hoverAnimation = () => {
 
 hoverAnimation();
 
-// const cursorMove = () => {
-//   const circle = document.querySelector(".circle"); // get the circle element
-
-//   products.addEventListener("mouseenter", () => {
-//     gsap.to(circle, {
-//       opacity: 1,
-//       scale: 1,
-//       duration: 0.3,
-//     });
-//   });
-
-//   products.addEventListener("mousemove", (e) => {
-//     gsap.to(circle, {
-//       left: e.clientX,
-//       top: e.clientY,
-//       duration: 0.3,
-//     });
-//   });
-
-//   products.addEventListener("mouseleave", () => {
-//     gsap.to(circle, {
-//       opacity: 0,
-//       scale: 0,
-//       duration: 0.3,
-//     });
-//   });
-// };
-// cursorMove();
-
 const cursorAnimation = () => {
   const circle = document.querySelector(".circle");
-
-  // const setCirclePos = gsap.quickSetter(circle, "css");
-
   document.querySelectorAll(".img").forEach((elem) => {
     const img = elem.querySelector("img");
 
@@ -114,12 +85,12 @@ const cursorAnimation = () => {
 
     elem.addEventListener("mousemove", (e) => {
       const rect = img.getBoundingClientRect();
-      const x = e.pageX - rect.left - window.scrollX;
-      const y = e.pageY - rect.top - window.scrollY;
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
 
       gsap.set(circle, {
-        left: e.pageX,
-        top: e.pageY,
+        left: e.clientX,
+        top: e.clientY,
         backgroundPosition: `-${x * 2 - circle.offsetWidth / 2}px -${
           y * 2 - circle.offsetHeight / 1
         }px`,

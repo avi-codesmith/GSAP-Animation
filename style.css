@@ -196,27 +196,16 @@ img {
   width: 50rem;
 }
 
-/* .circle {
-  height: 180px;
-  width: 180px;
-  border-radius: 50%;
-  position: fixed;
-  transform: translate(-50%, -50%); 
-  scale: 0;
-  opacity: 0;
-  z-index: 1;
-  } */
-
 .circle {
   height: 30vh;
   width: 30vh;
   background-color: #fff;
   border-radius: 50%;
-  pointer-events: none; /* So it doesn't block mouse events */
+  pointer-events: none;
   position: fixed;
   top: 50%;
   transform: translate(-50%, -50%);
-  scale: 0; /* Start hidden */
+  scale: 0;
   box-shadow: inset 0 0 32px #ddd;
 }
 
