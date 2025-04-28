@@ -26,7 +26,6 @@ body {
 
 .main-page {
   min-height: 100vh;
-  position: relative;
   width: 100%;
   padding: 0 1vw;
   padding-top: 18vh;
@@ -51,7 +50,6 @@ body {
 .img-container {
   height: 100vh;
   width: 100%;
-  position: relative;
 }
 
 .img-container img {
@@ -210,15 +208,14 @@ img {
   } */
 
 .circle {
-  position: fixed;
   height: 30vh;
   width: 30vh;
   background-color: #fff;
   border-radius: 50%;
   pointer-events: none; /* So it doesn't block mouse events */
+  position: fixed;
+  top: 50%;
   transform: translate(-50%, -50%);
-  left: 0;
-  top: 0;
   scale: 0; /* Start hidden */
   box-shadow: inset 0 0 32px #ddd;
 }

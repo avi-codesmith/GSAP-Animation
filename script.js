@@ -95,7 +95,7 @@ hoverAnimation();
 const cursorAnimation = () => {
   const circle = document.querySelector(".circle");
 
-  const setCirclePos = gsap.quickSetter(circle, "css");
+  // const setCirclePos = gsap.quickSetter(circle, "css");
 
   document.querySelectorAll(".img").forEach((elem) => {
     const img = elem.querySelector("img");
@@ -113,13 +113,13 @@ const cursorAnimation = () => {
     });
 
     elem.addEventListener("mousemove", (e) => {
-      const rect = elem.getBoundingClientRect(); // ⚡ Get the .img div's position
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
+      const rect = img.getBoundingClientRect();
+      const x = e.pageX - rect.left - window.scrollX;
+      const y = e.pageY - rect.top - window.scrollY;
 
       gsap.set(circle, {
-        left: e.clientX,
-        top: e.clientY,
+        left: e.pageX,
+        top: e.pageY,
         backgroundPosition: `-${x * 2 - circle.offsetWidth / 2}px -${
           y * 2 - circle.offsetHeight / 1
         }px`,
