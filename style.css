@@ -25,6 +25,15 @@ body {
   position: relative;
 }
 
+.nav-img {
+  display: flex;
+  flex-direction: column;
+}
+
+.img2 {
+  display: none;
+}
+
 .main-page {
   min-height: 100vh;
   width: 100%;
@@ -266,7 +275,7 @@ span {
   border-radius: 12vh;
 }
 
-.thank-you span {
+.thank-you .impact {
   font-size: 2vh;
   color: #000;
   font-weight: 800;
@@ -362,6 +371,16 @@ footer {
 .position {
   top: -60%;
   left: -90%;
+}
+
+.animation {
+  color: #eee !important;
+  -webkit-text-stroke: 4px #000;
+}
+
+.animation2 {
+  color: #eee;
+  -webkit-text-stroke: 1px #000;
 }
 
 @keyframes move {
