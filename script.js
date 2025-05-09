@@ -21,6 +21,12 @@ const loadingAnimation = () => {
     stagger: 0.3,
   });
 
+  gsap.from("nav", {
+    y: -100,
+    delay: 0.2,
+    duration: 0.8,
+  });
+
   document.querySelector("main").addEventListener("scroll", () => {
     gsap.to(".cover", {
       opacity: 0,
