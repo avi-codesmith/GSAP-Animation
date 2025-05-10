@@ -132,6 +132,12 @@ nav {
   height: 8vh;
 }
 
+.main-logo {
+  display: flex;
+  flex-direction: column;
+  background-color: red;
+}
+
 nav ul {
   display: flex;
   align-items: center;
@@ -282,7 +288,7 @@ span {
   width: 100%;
   position: fixed;
   bottom: 0;
-  background: linear-gradient(to top, #ffffffda, #ffffff00);
+  background: linear-gradient(to top, #ffffffb7, #ffffff00);
   z-index: 9999;
   pointer-events: none;
 }
