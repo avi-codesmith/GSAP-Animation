@@ -3,6 +3,8 @@ const imgSec = document.querySelector(".product");
 const needHover = document.querySelectorAll(".needHover");
 const imgWrapper = document.querySelector(".img-sec");
 const header = document.querySelector(".header");
+const main = document.querySelector("main");
+const trans = document.querySelector(".transformer");
 
 const scroll = new LocomotiveScroll({
   el: document.querySelector("main"),
@@ -21,13 +23,13 @@ const loadingAnimation = () => {
     stagger: 0.3,
   });
 
-  gsap.from("nav", {
+  gsap.from("header", {
     y: -100,
     delay: 0.2,
     duration: 0.8,
   });
 
-  document.querySelector("main").addEventListener("scroll", () => {
+  main.addEventListener("scroll", () => {
     gsap.to(".cover", {
       opacity: 0,
       duration: 0.5,
@@ -165,3 +167,7 @@ imgSecObs.observe(imgWrapper);
 // });
 
 // imgSecObs.observe(header);
+
+main.addEventListener("scroll", () => {
+  trans.style.transform = "translateY(-60%)";
+});
