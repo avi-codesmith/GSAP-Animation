@@ -25,7 +25,7 @@ const loadingAnimation = () => {
   });
 
   gsap.from("header", {
-    y: -100,
+    y: -1000,
     delay: 0.2,
     duration: 0.8,
   });
