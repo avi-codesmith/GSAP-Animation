@@ -5,6 +5,7 @@ const imgWrapper = document.querySelector(".img-sec");
 const header = document.querySelector(".header");
 const main = document.querySelector("main");
 const trans = document.querySelector(".transformer");
+const footer = document.querySelector(".upper-footer");
 
 const scroll = new LocomotiveScroll({
   el: document.querySelector("main"),
@@ -149,25 +150,20 @@ const imgSecObs = new IntersectionObserver((enteries) => {
 
 imgSecObs.observe(imgWrapper);
 
-// const headerSecObs = new IntersectionObserver((enteries) => {
-//   const ent = enteries[0];
-//   if (ent.isIntersecting === true) {
-//     gsap.from(".header", {
-//       scale: 0.99,
-//       opacity: 0,
-//       delay: 0.4,
-//       duration: 0.5,
-//     });
-//   } else {
-//     gsap.from(".header", {
-//       scale: 1,
-//       opacity: 1,
-//     });
-//   }
-// });
+scroll.on("scroll", (args) => {
+  const scrollY = args.scroll.y;
 
-// imgSecObs.observe(header);
+  if (scrollY > 0) {
+    trans.style.transform = "translateY(-60%)";
+  } else {
+    trans.style.transform = "translateY(0)";
+  }
+  const footObs = new IntersectionObserver((e) => {
+    const ent = e[0];
+    if (ent.isIntersecting == true) {
+      trans.style.transform = "translateY(0)";
+    }
+  });
 
-main.addEventListener("scroll", () => {
-  trans.style.transform = "translateY(-60%)";
+  footObs.observe(footer);
 });

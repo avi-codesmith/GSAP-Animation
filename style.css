@@ -42,6 +42,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 999;
+  pointer-events: none;
 }
 
 .main-logo {
@@ -62,6 +63,7 @@ header {
 .transformer {
   display: flex;
   flex-direction: column;
+  transition: all 0.3s ease-in-out;
 }
 
 .main-logo span {
@@ -69,17 +71,19 @@ header {
   font-weight: 900;
   line-height: 1;
   font-family: futura;
+  user-select: none;
 }
 
 .header-ul {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 20vw;
+  width: auto;
+  gap: 2rem;
   list-style-type: none;
   justify-content: space-around;
   background-color: rgba(255, 255, 255, 0.95);
-  padding: 1rem 0 0 0;
+  padding: 1rem 1.4rem 0rem 1.4rem;
   border-radius: 20rem;
 }
 
@@ -91,6 +95,7 @@ header {
   font-size: 1.2vh;
   text-transform: uppercase;
   font-family: sans-serif;
+  pointer-events: all !important;
 }
 .header-ul li span {
   display: none !important;
@@ -173,6 +178,13 @@ header {
   background-color: blanchedalmond;
   position: absolute;
   border-radius: 50vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  font-weight: 900;
+  cursor: pointer;
 }
 
 .shop-section {
@@ -463,38 +475,5 @@ footer {
   100% {
     width: 0;
     transform: translateX(10rem);
-  }
-}
-
-@media (max-width: 1024px) {
-  .img-container {
-    height: 60vh;
-  }
-}
-
-@media (max-width: 900px) {
-  .main-page h1 {
-    font-size: 16vw;
-  }
-  .product-wrapper {
-    flex-direction: column;
-    gap: 1vw;
-    height: 100vh;
-    margin-top: 20vw;
-  }
-  .product {
-    width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .product {
-    height: 33vh;
-  }
-  .main-page {
-    min-height: 90vh;
-  }
-  .img-container {
-    height: 50vh;
   }
 }
